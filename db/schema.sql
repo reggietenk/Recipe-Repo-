@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS recipeRepo_db;
+
+CREATE DATABASE recipeRepo_db;
