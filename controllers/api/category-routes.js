@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
   // find all categories
   // be sure to include its associated Products
   Categories.findAll({
-      attributes: ['idCategory', 'strCategory', 'strCategoryThumb', 'strCategoryDescription'],
+      attributes: ['id_category', 'str_category', 'str_category_thumb', 'str_category_description'],
     //   include: [
     //       {
     //           model: Product,
@@ -27,9 +27,9 @@ router.get('/:id', (req, res) => {
   // be sure to include its associated Products
   Category.findOne({
       where: {
-          id: req.params.id
+          id_category: req.params.id_category
       },
-      attributes: ['idCategory', 'strCategory', 'strCategoryThumb', 'strCategoryDescription'],
+      attributes: ['id_category', 'str_category', 'str_category_thumb', 'str_category_description'],
     //   include: [
     //       {
     //           model: Product,
@@ -53,9 +53,9 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   // create a new category
   Category.create({
-      strCategory: req.body.strCategory,
-      strCategoryThumb: req.body.strCategoryThumb,
-      strCategoryDescription: req.body.strCategoryDescription
+      str_category: req.body.str_category,
+      str_category_thumb: req.body.str-category_thumb,
+      str_Category_description: req.body.str_category_description
   })
       .then(dbCategoryData => res.json(dbCategoryData))
       .catch(err => {
@@ -69,11 +69,11 @@ router.put('/:id', (req, res) => {
   // update a category by its `id` value
   Category.update(
     {
-     strCategory: req.body.strCategory
+     str_category: req.body.str_category
     },
     {
       where: {
-        idCategory: req.params.idCategory
+        id_category: req.params.id_category
       }
     }
   )
@@ -95,7 +95,7 @@ router.delete('/:id', (req, res) => {
   // delete a category by its `id` value
   Category.destroy({
     where: {
-      idCategory: req.params.idCategory
+      id_category: req.params.id_category
     }
   })
     .then(dbCategoryData => {

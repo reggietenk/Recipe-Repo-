@@ -7,26 +7,26 @@ class Categories extends Model {}
 // create fields/columns for Categories model
 Categories.init(
     {
-      idCategory: {
+      id_category: {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true
       },
-      strCategory: {
+      str_category: {
         type: DataTypes.STRING,
         allowNull: false
       },
-      strCategoryThumb: {
+      str_category_thumb: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
           isURL: true
         }
       },
-      strCategoryDescription: {
-        type: DataTypes.STRING,
-        allowNull: false
+      str_category_description: {
+        type: DataTypes.STRING(1000),
+        allowNull: true
       }
     },
     {
