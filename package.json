@@ -1,5 +1,5 @@
 {
-    "name": "hacker-news-clone",
+    "name": "recipe-repo",
     "version": "1.0.0",
     "description": "",
     "main": "server.js",
@@ -20,6 +20,7 @@
         "express-session": "^1.17.0",
         "handlebars": "^4.7.3",
         "mysql2": "^2.3.3",
+        "nodemon": "^2.0.15",
         "sequelize": "^5.22.5"
     },
     "devDependencies": {
