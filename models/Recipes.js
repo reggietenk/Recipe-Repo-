@@ -19,11 +19,26 @@ Recipes.init(
       type: DataTypes.STRING,
       allowNull: false
     },
+    recipe_instructions: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     category_id: {
       type: DataTypes.INTEGER,
       references: {
         model: "categories",
         key: "id_category"
+      }
+    },
+    ingredients: {
+      type: DataTypes.STRING,
+      allowNull: false      
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id'
       }
     }
   },
@@ -36,4 +51,4 @@ Recipes.init(
   }
 );
 
-module.exports = Product;
+module.exports = Recipes;
