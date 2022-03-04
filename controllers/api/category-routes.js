@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   // find one category by its `id` value
   // be sure to include its associated Products
-  Category.findOne({
+  Categories.findOne({
       where: {
           id_category: req.params.id_category
       },
@@ -52,10 +52,10 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   // create a new category
-  Category.create({
+  Categories.create({
       str_category: req.body.str_category,
-      str_category_thumb: req.body.str-category_thumb,
-      str_Category_description: req.body.str_category_description
+      str_category_thumb: req.body.str_category_thumb,
+      str_category_description: req.body.str_category_description
   })
       .then(dbCategoryData => res.json(dbCategoryData))
       .catch(err => {
@@ -67,13 +67,13 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
   // update a category by its `id` value
-  Category.update(
+  Categories.update(
     {
      str_category: req.body.str_category
     },
     {
       where: {
-        id_category: req.params.id_category
+        id_category: req.params.id
       }
     }
   )
@@ -93,9 +93,9 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   // delete a category by its `id` value
-  Category.destroy({
+  Categories.destroy({
     where: {
-      id_category: req.params.id_category
+      id_category: req.params.id
     }
   })
     .then(dbCategoryData => {
