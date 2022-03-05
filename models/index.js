@@ -12,10 +12,10 @@ Recipes.belongsTo(User, {
     foreignKey: 'user_id'
 })
 
-Recipes.belongsToMany(User, {
-    through: Comment,  
-    foreignKey: 'user_id'
-})
+// Recipes.belongsToMany(User, {
+//     // through: Comment,  
+//     foreignKey: 'user_id'
+// })
 
 //Category Relationships
 Recipes.belongsTo(Categories, {
@@ -27,22 +27,22 @@ Categories.hasMany(Recipes, {
 });
 
 
-//Comment Relationships
-Comment.belongsTo(User, {
-    foreignKey: 'user_id'
-});
+// //Comment Relationships
+// Comment.belongsTo(User, {
+//     foreignKey: 'user_id'
+// });
   
-Comment.belongsTo(Recipes, {
-    foreignKey: 'post_id'
-});
+// Comment.belongsTo(Recipes, {
+//     foreignKey: 'post_id'
+// });
   
-User.hasMany(Comment, {
-    foreignKey: 'user_id'
-});
+// User.hasMany(Comment, {
+//     foreignKey: 'user_id'
+// });
   
-Recipes.hasMany(Comment, {
-    foreignKey: 'post_id'
-});
+// Recipes.hasMany(Comment, {
+//     foreignKey: 'post_id'
+// });
 
 
-module.exports = { User, Categories, Recipes, Comment };
+module.exports = { User, Categories, Recipes };
