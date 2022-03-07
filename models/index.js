@@ -55,4 +55,4 @@ Recipes.hasMany(Comments, {
     hooks:true
 })
 
-module.exports = { User, Categories, Recipes };
+module.exports = { User, Categories, Recipes, Comments };
