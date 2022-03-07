@@ -10,7 +10,7 @@ import CreateGroup from "../Modals/CreateGroup";
 import "./UserProfile.css";
 import Searchbar from "../Search/SearchBar";
 // import AddRecipe from './SingleRecipe/AddRecipe'
-import Notifications from "../Modals/Notifications";
+
 
 
 

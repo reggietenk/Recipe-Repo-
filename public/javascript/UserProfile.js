@@ -6,7 +6,6 @@ import RecipeBox from "../SingleRecipe/RecipeBox";
 import Recipe from "../SingleRecipe/Recipe";
 import UserEdit from ".//UserEdit";
 import UserFaves from "./UserFaves";
-import CreateGroup from "../Modals/CreateGroup";
 import "./UserProfile.css";
 import Searchbar from "../Search/SearchBar";
 
