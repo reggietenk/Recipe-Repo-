@@ -1,10 +1,10 @@
 const sequelize = require('../../config/connection');
 const router = require('express').Router();
-const { Recipes, User, Categories } = require('../../models');
+const { Recipes, User, Categories, Comments } = require('../../models');
 const withAuth = require('../../utils/auth')
 
 
-// get all users
+// get all recipes
 router.get('/', (req, res) => {
     console.log('======================');
     Recipes.findAll({
@@ -24,6 +24,10 @@ router.get('/', (req, res) => {
           {
             model: User,
             attributes: ['username']
+          },
+          {
+            model: Comments,
+            attributes: ['id', 'comment_text', 'user_id', 'recipe_id', 'created_at']
           }
         ]
     })
@@ -49,6 +53,12 @@ router.get('/', (req, res) => {
         {
           model: User,
           attributes: ['username']
+        }
+      ],
+      include: [
+        {
+          model: Comments,
+          attributes: ['id', 'comment_text', 'user_id', 'recipe_id', 'created_at']
         }
       ]
     })
