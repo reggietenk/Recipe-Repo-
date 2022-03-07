@@ -11,14 +11,16 @@ router.get('/', withAuth, (req, res) => {
     },
     attributes: [
       'id',
-      'post_text',
-      'title',
+      'recipe_name',
+      'recipe_instructions',
+      'category_id',
+      'ingredients',
       'created_at',
     ],
     include: [
       {
         model: Comments,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        attributes: ['id', 'comment_text', 'recipe_id', 'user_id', 'created_at'],
         include: {
           model: User,
           attributes: ['username']
@@ -30,10 +32,10 @@ router.get('/', withAuth, (req, res) => {
       }
     ]
   })
-    .then(dbPostData => {
+    .then(dbRecipeData => {
       // serialize data before passing to template
-      const posts = dbPostData.map(post => post.get({ plain: true }));
-      res.render('dashboard', { posts, loggedIn: true });
+      const recipes = dbRecipeData.map(recipe => recipe.get({ plain: true }));
+      res.render('dashboard', { recipes, loggedIn: true });
     })
     .catch(err => {
       console.log(err);
@@ -42,19 +44,21 @@ router.get('/', withAuth, (req, res) => {
 });
 
 router.get('/edit/:id', withAuth, (req, res) => {
-  Post.findOne({
+  Recipes.findOne({
           where: {
               id: req.params.id
           },
           attributes: [
-              'id',
-              'title',
-              'post_text',
-              'created_at'
+            'id',
+            'recipe_name',
+            'recipe_instructions',
+            'category_id',
+            'ingredients',
+            'created_at',
           ],
           include: [{
                   model: Comment,
-                  attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                  attributes: ['id', 'comment_text', 'recipe_id', 'user_id', 'created_at'],
                   include: {
                       model: User,
                       attributes: ['username']
@@ -66,20 +70,20 @@ router.get('/edit/:id', withAuth, (req, res) => {
               }
           ]
       })
-      .then(dbPostData => {
-          if (!dbPostData) {
+      .then(dbRecipeData => {
+          if (!dbRecipeData) {
               res.status(404).json({
-                  message: 'No post found with this id'
+                  message: 'No recipe found with this id'
               });
               return;
           }
 
-          const post = dbPostData.get({
+          const recipe = dbRecipeData.get({
               plain: true
           });
 
-          res.render('edit-post', {
-              post,
+          res.render('edit-recipe', {
+              recipe,
               loggedIn: true
           });
       })
