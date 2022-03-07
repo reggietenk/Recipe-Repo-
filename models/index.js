@@ -1,6 +1,7 @@
 const User = require('./User');
-const Categories = require('./Categories')
-const Recipes = require('./Recipes')
+const Categories = require('./Categories');
+const Recipes = require('./Recipes');
+const Comments = require('./Comment');
 
 
 //User Relationships to Recipes
@@ -11,6 +12,8 @@ User.hasMany(Recipes, {
 Recipes.belongsTo(User, {
     foreignKey: 'user_id'
 })
+
+//need to allow users to save a recipe to their dashboard of favorite recipes
 
 // Recipes.belongsToMany(User, {
 //     // through: Comment,  
@@ -26,23 +29,32 @@ Categories.hasMany(Recipes, {
     foreignKey: 'id_category'
 });
 
-
-// //Comment Relationships
-// Comment.belongsTo(User, {
-//     foreignKey: 'user_id'
-// });
+// Comment-User relationship
+Comments.belongsTo(User, {
+    foreignKey: 'user_id',
+    onDelete: 'cascade',
+    hooks:true
+  });
   
-// Comment.belongsTo(Recipes, {
-//     foreignKey: 'post_id'
-// });
+// Comment-Post relationship
+Comments.belongsTo(Recipes, {
+    foreignKey: 'post_id',
+    onDelete: 'cascade',
+    hooks: true
+});
   
-// User.hasMany(Comment, {
-//     foreignKey: 'user_id'
-// });
+// User-Comment relationsihp
+User.hasMany(Comments, {
+    foreignKey: 'user_id',
+    onDelete: 'cascade',
+    hooks:true
+});
   
-// Recipes.hasMany(Comment, {
-//     foreignKey: 'post_id'
-// });
+// Post-Comment relationship
+Recipes.hasMany(Comments, {
+    foreignKey: 'recipe_id',
+    onDelete: 'cascade',
+    hooks:true
+})
 
-
-module.exports = { User, Categories, Recipes };
+module.exports = { User, Categories, Recipes, Comments };
