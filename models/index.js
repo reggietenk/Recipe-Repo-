@@ -13,6 +13,8 @@ Recipes.belongsTo(User, {
     foreignKey: 'user_id'
 })
 
+//need to allow users to save a recipe to their dashboard of favorite recipes
+
 // Recipes.belongsToMany(User, {
 //     // through: Comment,  
 //     foreignKey: 'user_id'
@@ -35,7 +37,7 @@ Comments.belongsTo(User, {
   });
   
 // Comment-Post relationship
-Comment.belongsTo(Recipes, {
+Comments.belongsTo(Recipes, {
     foreignKey: 'post_id',
     onDelete: 'cascade',
     hooks: true
