@@ -4,7 +4,7 @@ const { Recipes, User, Comments } = require('../models');
 
 // get all recipes for homepage
 router.get('/', (req, res) => {
-  console.log('======================');
+  console.log('req.session');
   Recipes.findAll({
     attributes: [
       'id',
