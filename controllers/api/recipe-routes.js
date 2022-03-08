@@ -75,8 +75,9 @@ router.get('/', (req, res) => {
       });
   });
 
+  
   router.post('/', (req, res) => {
-    // expects { "recipe_name": "pizza", "recipe_instructions": "put in the oven", "category_id": 5, "ingredients": "Dough, flour, sauce, and cheese", "user_id": 1 } 
+     // expects { "recipe_name": "pizza", "recipe_instructions": "put in the oven", "category_id": 5, "ingredients": "Dough, flour, sauce, and cheese", "user_id": 1 } 
     Recipes.create({
       recipe_name: req.body.recipe_name,
       recipe_instructions: req.body.recipe_instructions,
