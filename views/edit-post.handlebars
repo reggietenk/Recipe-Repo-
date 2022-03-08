@@ -1,0 +1,27 @@
+<article>
+  <a href="/dashboard"> &larr; Back to dashboard</a>
+  <h2>
+    Edit Recipe
+  </h2>
+  <form id="edit-recipe-form">
+    <div>
+      <input name="recipe-title-edit" type="text" value="{{recipe.title}}"/>
+    </div>
+    <div>
+      <label for="recipe-url">Content</label>
+      <textarea class="recipearea" id="recipe-text" name="recipe-content-edit" type="text">{{recipe.recipe_text}}</textarea>
+    </div>
+    <div>
+      created on {{format_date recipe.created_at}}
+      |
+      <a href="/recipes/{{recipe.id}}">{{recipe.comments.length}} {{format_plural "comment" recipe.comments.length}}</a>
+    </div>
+    <button type="submit">Save Recipe</button>
+    <button type="button" class="delete-recipe-btn">Delete Recipe</button>
+  </form>
+</article>
+
+<script src="/javascript/edit-recipe.js"></script>
+<script src="/javascript/delete-recipe.js"></script>
+
+
