@@ -8,11 +8,8 @@ import "./SearchBar.css";
 import cookbooklogo from "../../images/cookbooknamelogo.png";
 import writingicon from "../../images/writingiconorange.png";
 import utensilLogo from "../../images/utensil-logo.png";
-import hearticon from "../../images/hearticonorange.png";
 import groupicon from "../../images/group.png";
-import potluckicon from "../../images/potluck.png";
-import notificationicon from "../../images/notification.png";
-import Notifications from "../Modals/Notifications";
+import Notifications from "../Models/Notifications";
 
 
 function getSuggestionValue(suggestion) {
@@ -224,20 +221,14 @@ class Searchbar extends Component {
             >
               Favorite Recipes
             </a>
-            <a
+            <a>
             id="contact"
             className="menu-item"
             href={`/cb/addrecipe`}
-          >
+          
             Add Recipe
-          </a>
-      <a
-              id="contact"
-              className="menu-item"
-              href={`/cb/potlucks`}
-            >
-              My potlucks
             </a>
+        
           <a
           id="contact"
           className="menu-item"
