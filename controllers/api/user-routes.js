@@ -18,27 +18,20 @@ router.get('/:id', (req, res) => {
     attributes: { exclude: ['password'] },
     where: {
       id: req.params.id
-    },
+    }
     // include: [
     //   {
-    //     model: Post,
-    //     attributes: ['id', 'title', 'post_url', 'created_at']
+    //     model: Recipes,
+    //     attributes: ['id', 'title', 'post_text', 'created_at']
     //   },
     //   {
     //     model: Comment,
     //     attributes: ['id', 'comment_text', 'created_at'],
     //     include: {
-    //       model: Post,
+    //       model: Recipes,
     //       attributes: ['title']
     //     }
     //   },
-    //   {
-    //     model: Post,
-    //     attributes: ['title'],
-    //     through: Vote,
-    //     as: 'voted_posts'
-    //   }
-    // ]
   })
     .then(dbUserData => {
       if (!dbUserData) {
@@ -71,7 +64,7 @@ router.post('/', (req, res) => {
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(500100).json(err);
     });
 });
 

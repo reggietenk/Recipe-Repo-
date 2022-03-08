@@ -2,16 +2,16 @@ async function editFormHandler(event) {
     event.preventDefault();
 
     const title = document.querySelector('input[name="post-title-edit"]').value.trim();
-    const post_text = document.querySelector('textarea[name="post-content-edit"]').value.trim();
-    const post_id = window.location.toString().split('/')[
+    const recipe_text = document.querySelector('textarea[name="recipe-content-edit"]').value.trim();
+    const recipe_id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
 
-    const response = await fetch(`/api/posts/${post_id}`, {
+    const response = await fetch(`/api/recipes/${recipe_id}`, {
         method: 'PUT',
         body: JSON.stringify({
             title,
-            post_text
+            recipe_<>
         }),
         headers: {
             'Content-Type': 'application/json'
@@ -25,4 +25,4 @@ async function editFormHandler(event) {
     }
 }
 
-document.querySelector('#edit-post-form').addEventListener('submit', editFormHandler);
+document.querySelector('#edit-recipe-form').addEventListener('submit', editFormHandler);
