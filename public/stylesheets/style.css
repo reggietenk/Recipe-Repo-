@@ -8,6 +8,12 @@
     margin: 0;
     font-family: sans-serif;
     color: #333;
+    background-image: url("Recipe-Website-Themes.jpg")
+  }
+
+  h1 {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
   
   a {
