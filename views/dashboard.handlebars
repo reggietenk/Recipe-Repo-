@@ -1,31 +1,31 @@
 <section>
-  <h2>Create New Post</h2>
+  <h2>Create New Recipe</h2>
 
-  <form class="new-post-form">
+  <form class="new-recipe-form">
     <div>
-      <label for="post-title">Title</label>
-      <input type="text" id="post-title" name="post-title" />
+      <label for="recipe-title">Title</label>
+      <input type="text" id="recipe-title" name="recipe-title" />
     </div>
     <div>
-      <label for="post-url">Content</label>
-      <textarea class="postarea" id="post-text" name="post-text"></textarea>
+      <label for="recipe-url">Content</label>
+      <textarea class="postarea" id="recipe-text" name="recipe-text"></textarea>
     </div>
     <button type="submit" class="btn">Publish</button>
   </form>
 </section>
 
-{{#if posts.length}}
+{{#if recipes.length}}
 <section>
-  <h2>Your Posts</h2>
+  <h2>Your Recipess</h2>
   <ol>
-    {{#each posts as |post|}}
+    {{#each recipes as |recipe|}}
     <li>
-      {{> post-info post}}
-      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+      {{> recipe-info recipe}}
+      <a href="/dashboard/edit/{{recipe.id}}" class="edit-link">Edit recipe</a>
     </li>
     {{/each}}
   </ol>
 </section>
 {{/if}}
 
-<script src="/javascript/add-post.js"></script>
+<script src="/javascript/add-recipe.js"></script>

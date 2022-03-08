@@ -1,14 +1,14 @@
 async function newFormHandler(event) {
     event.preventDefault();
   
-    const title = document.querySelector('input[name="post-title"]').value;
-    const post_text = document.querySelector('textarea[name="post-text"]').value;
+    const title = document.querySelector('input[name="recipe-title"]').value;
+    const post_text = document.querySelector('textarea[name="recipe-text"]').value;
   
-    const response = await fetch(`/api/posts`, {
+    const response = await fetch(`/api/recipes`, {
       method: 'POST',
       body: JSON.stringify({
         title,
-        post_text
+        recipe_<>
       }),
       headers: {
         'Content-Type': 'application/json'
@@ -22,4 +22,4 @@ async function newFormHandler(event) {
     }
   }
   
-  document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
+  document.querySelector('.new-recipe-form').addEventListener('submit', newFormHandler);

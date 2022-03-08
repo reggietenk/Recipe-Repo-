@@ -36,9 +36,9 @@ Comments.belongsTo(User, {
     hooks:true
   });
   
-// Comment-Post relationship
+// Comment-Recipes relationship
 Comments.belongsTo(Recipes, {
-    foreignKey: 'post_id',
+    foreignKey: 'recipe_id',
     onDelete: 'cascade',
     hooks: true
 });
