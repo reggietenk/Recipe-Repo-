@@ -172,3 +172,16 @@
     padding: 1%;
     font-size: 110%;
   }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto; 
+    padding: 10px;
+    text-align: left;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .grid-container > div {
+    padding: 20px;
+  }
