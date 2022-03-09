@@ -43,6 +43,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
+  console.log(req.body, "this is the user in the database")
   res.render('login');
 });
 
