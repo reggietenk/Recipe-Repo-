@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Recipes, User, Comments } = require('../models');
+const { Recipes, User, Comments, Categories } = require('../models');
 
 // get all recipes for homepage
 router.get('/', (req, res) => {
@@ -94,5 +94,28 @@ router.get('/recipes/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
+
+router.get('/categories', (req,res) => {
+  Categories.findAll({
+    attributes: [
+      'id_category',
+      'str_category',
+      'str_category_thumb',
+      'str_category_description',
+    ]
+  })
+    .then(dbCategoryData => {
+
+      const categories = dbCategoryData.map(category => category.get({ plain: true }));
+      // pass a single post object into the homepage template
+      res.render('categories', { categories });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+
 
 module.exports = router;
