@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Recipes, User, Comments } = require('../models');
+const { Recipes, User, Comments, Categories } = require('../models');
 const withAuth = require('../utils/auth')
 
 router.get('/', withAuth, (req, res) => {
@@ -29,6 +29,10 @@ router.get('/', withAuth, (req, res) => {
       {
         model: User,
         attributes: ['username']
+      },
+      {
+        model: Categories,
+        attributes: ['str_category']
       }
     ]
   })
