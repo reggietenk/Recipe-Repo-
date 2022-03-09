@@ -20,6 +20,11 @@
   a:hover {
     color: #3486eb;
   }
+
+  h1 {
+    text-align: center;
+    color: #225ca3;
+  }
   
   button {
     background-color: #225ca3;
