@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Recipes, User, Comments } = require('../models');
+const { Recipes, User, Comments, Categories } = require('../models');
 
 // get all recipes for homepage
 router.get('/', (req, res) => {
@@ -94,5 +94,9 @@ router.get('/recipes/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
+
+router.get('/categories', (req,res) => {
+  res.render('categories');
+})
 
 module.exports = router;
