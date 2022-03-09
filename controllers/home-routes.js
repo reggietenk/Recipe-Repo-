@@ -96,7 +96,26 @@ router.get('/recipes/:id', (req, res) => {
 });
 
 router.get('/categories', (req,res) => {
-  res.render('categories');
-})
+  Categories.findAll({
+    attributes: [
+      'id_category',
+      'str_category',
+      'str_category_thumb',
+      'str_category_description',
+    ]
+  })
+    .then(dbCategoryData => {
+
+      const categories = dbCategoryData.map(category => category.get({ plain: true }));
+      // pass a single post object into the homepage template
+      res.render('categories', { categories });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+
 
 module.exports = router;
