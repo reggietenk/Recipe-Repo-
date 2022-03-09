@@ -33,6 +33,7 @@ router.get('/', (req, res) => {
 
       res.render('homepage', { 
         recipes,
+        posts,
         loggedIn: req.session.loggedIn
       });
     })
