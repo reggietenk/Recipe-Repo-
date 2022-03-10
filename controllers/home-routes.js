@@ -89,7 +89,10 @@ router.get('/recipes/:id', (req, res) => {
     const recipe = dbRecipeData.get({ plain: true });
 
     // pass data to template
-    res.render('single-recipe', { recipe });
+    res.render('single-recipe', { 
+      recipe,
+      loggedIn: req.session.loggedIn
+    });
   })
   .catch(err => {
     console.log(err);
