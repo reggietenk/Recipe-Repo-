@@ -61,12 +61,12 @@ router.get('/recipes/:id', (req, res) => {
       'id',
       'recipe_name',
       'recipe_instructions',
-      'category_id',
-      'ingredients'  
+      'ingredients',
+      'created_at'
     ],
     include: [
       {
-        model: Comment,
+        model: Comments,
         attributes: ['id', 'comment_text', 'recipe_id', 'user_id', 'created_at'],
         include: {
           model: User,
@@ -79,26 +79,27 @@ router.get('/recipes/:id', (req, res) => {
       }
     ]
   })
-    .then(dbRecipeData => {
-      if (!dbRecipeData) {
-        res.status(404).json({ message: 'No recipe found with this id' });
-        return;
-      }
+  .then(dbRecipeData => {
+    if (!dbRecipeData) {
+      res.status(404).json({ message: 'No recipe found with this id' });
+      return;
+    }
 
-      // serialize the data
-      const recipe = dbRecipeData.get({ plain: true });
+    // serialize the data
+    const recipe = dbRecipeData.get({ plain: true });
 
-      // pass data to template
-      res.render('single-recipe', { 
-        recipe,
-        loggedIn:req.session.loggedIn
-      });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
+    // pass data to template
+    res.render('single-recipe', { 
+      recipe,
+      loggedIn: req.session.loggedIn
     });
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
+   
 
 router.get('/categories', (req,res) => {
   Categories.findAll({
@@ -113,7 +114,10 @@ router.get('/categories', (req,res) => {
 
       const categories = dbCategoryData.map(category => category.get({ plain: true }));
       // pass a single post object into the homepage template
-      res.render('categories', { categories });
+      res.render('categories', { 
+        categories,
+        loggedIn: req.session.loggedIn
+       });
     })
     .catch(err => {
       console.log(err);
