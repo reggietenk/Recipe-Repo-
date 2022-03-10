@@ -1,15 +1,16 @@
 * {
     box-sizing: border-box;
   }
-  
+
   body, html {
     height: 100%;
     padding: 0;
     margin: 0;
     font-family: sans-serif;
     color: #333;
+    background-color:rgba(190, 199, 189, 0.219);
   }
-  
+ 
   a {
     text-decoration: none;
     color: #225ca3;
@@ -39,6 +40,7 @@
   .recipe-list {
     margin: 0;
     padding: 0;
+    background-color:rgba(190, 199, 189, 0.219);
   }
   
   textarea, input {
@@ -184,4 +186,8 @@
   
   .grid-container > div {
     padding: 20px;
+  }
+
+  .navbar {
+    color:rgba(20, 34, 228, 0.664);
   }
