@@ -114,7 +114,10 @@ router.get('/categories', (req,res) => {
 
       const categories = dbCategoryData.map(category => category.get({ plain: true }));
       // pass a single post object into the homepage template
-      res.render('categories', { categories });
+      res.render('categories', { 
+        categories,
+        loggedIn: req.session.loggedIn
+       });
     })
     .catch(err => {
       console.log(err);
