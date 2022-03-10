@@ -8,7 +8,7 @@ const withAuth = require('../../utils/auth')
 router.get('/', (req, res) => {
     console.log('======================');
     Recipes.findAll({
-        attributes: ['id', 'recipe_name', 'recipe_instructions', 'category_id', 'ingredients', 'user_id' ],
+        attributes: ['id', 'recipe_name', 'recipe_instructions', 'category_id', 'ingredients', 'user_id', 'created_at' ],
         order: [['created_at', 'DESC']],
         include: [
             {
@@ -43,7 +43,7 @@ router.get('/', (req, res) => {
       where: {
         id: req.params.id
       },
-      attributes: ['id', 'recipe_name', 'recipe_instructions', 'category_id', 'ingredients', 'user_id'
+      attributes: ['id', 'recipe_name', 'recipe_instructions', 'category_id', 'ingredients', 'user_id', 'created_at'
     ],
       include: [
         {
