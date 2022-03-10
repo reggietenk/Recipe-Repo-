@@ -125,6 +125,9 @@ router.get('/categories', (req,res) => {
     });
 });
 
+router.get('/recipecategory', (req,res) => {
+  res.render('crecipe')
+})
 
 
 module.exports = router;
