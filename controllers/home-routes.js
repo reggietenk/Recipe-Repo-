@@ -53,20 +53,50 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/recipes/:id', (req, res) => {
-  const recipe = {
-    id: 1,
-    recipe_name: 'Pizza',
-    recipe_instructions: 'Make the pizza',
-    ingredients: 'dough, sauce, cheese',
-    created_at: new Date(),
-    comments: [{}, {}],
-    user: {
-      username: 'test_user'
+  Recipes.findOne({
+    where: {
+      id: req.params.id
+    },
+    attributes: [
+      'id',
+      'recipe_name',
+      'recipe_instructions',
+      'ingredients',
+      'created_at'
+    ],
+    include: [
+      {
+        model: Comments,
+        attributes: ['id', 'comment_text', 'recipe_id', 'user_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+      },
+      {
+        model: User,
+        attributes: ['username']
+      }
+    ]
+  })
+  .then(dbRecipeData => {
+    if (!dbRecipeData) {
+      res.status(404).json({ message: 'No recipe found with this id' });
+      return;
     }
-  };
 
-  res.render('single-recipe', { recipe });
+    // serialize the data
+    const recipe = dbRecipeData.get({ plain: true });
+
+    // pass data to template
+    res.render('single-recipe', { recipe });
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
+   
 
 router.get('/categories', (req,res) => {
   Categories.findAll({
