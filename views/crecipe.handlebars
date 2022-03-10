@@ -1,1 +1,7 @@
 <div>The Category is pulling up</div>
+
+<article class="recipe-list">
+  {{#each categories.recipes}}
+  {{> category-recipe}}
+  {{/each}}
+</article>

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Categories, Recipes } = require('../../models');
+const { Categories, Recipes, Comments, User } = require('../../models');
 
 // The `/api/categories` endpoint
 
@@ -32,8 +32,10 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Recipes,
-        attributes: ['id', 'recipe_name', 'recipe_instructions', 'category_id', 'ingredients', 'user_id', 'created_at' ]
+        attributes: ['id', 'recipe_name', 'recipe_instructions', 'category_id', 'ingredients', 'user_id', 'created_at' ],
       }
+      
+
     ]
   })
     .then(dbCategoryData => {

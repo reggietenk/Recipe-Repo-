@@ -1,13 +1,9 @@
 <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
     <div class="card-header">
-    <a href="/recipes/{{id}}" target="_blank">{{recipe_name}}</a>
+    <a href="/recipes/{{recipe.id}}" target="_blank">{{recipe_name}}</a>
     </div>
   <div class="card-body">
     <p class="card-text"><h5>Instructions:</h5> <h6>{{recipe_instructions}}</h6></p>
     <p class="card-text"><h5>Ingredients:</h5> <h6>{{ingredients}}</h6></p>
-    <div class="meta">
-    by {{user.username}} on {{format_date created_at}}
-    </div>
   </div>
 </div>
-
