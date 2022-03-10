@@ -35,12 +35,16 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Saved recipes</a>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="/login">Login <span class="sr-only">(current)</span></a>
-      </li>
+      {{#if loggedIn}}
       <li class="nav-item active">
         <a class="nav-link" id="logout">logout</a>
       </li>
+      {{else}}
+      <li class="nav-item active">
+        <a class="nav-link" href="/login">Login <span class="sr-only">(current)</span></a>
+      </li>
+      {{/if}}
+      
   
     </ul>
     <form class="form-inline my-2 my-lg-0">
@@ -61,6 +65,8 @@
        2022 Recipe Repositiory, Inc.
     </div>
   </footer>
+  {{#if loggedIn}}
  <script src="/javascript/logout.js"></script> 
+ {{/if}}
 </body>
 </html>
