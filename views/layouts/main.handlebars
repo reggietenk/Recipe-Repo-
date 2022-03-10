@@ -13,12 +13,11 @@
 
 
 </html>
-
     <title>Recipe Repo</title>
 </head>
-<body>
+<body id="body">
    
-<h1>
+<h1 id="rrheader">
     Recipe Repo
 </h1>
 
@@ -27,17 +26,17 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-        <a class="nav-link" href="/">Home Page</a>
+        <a class="nav-link" id="navlink" href="/">Home Page</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/categories">Categories</a>
+        <a class="nav-link" id="navlink" href="/categories">Categories</a>
       <li class="nav-item">
       </li>
       {{#if loggedIn}}
       <li class="nav-item">
-        <a class="nav-link" href="#">Profile</a>
+        <a class="nav-link" id="navlink" href="#">Profile</a>
       </li>
       {{/if}}
       {{#if loggedIn}}
@@ -46,7 +45,7 @@
       </li>
       {{else}}
       <li class="nav-item active">
-        <a class="nav-link" href="/login">Login <span class="sr-only">(current)</span></a>
+        <a class="nav-link" id="navlink" href="/login">Login <span class="sr-only">(current)</span></a>
       </li>
       {{/if}}
       
@@ -65,7 +64,7 @@
  
 <!-- footer -->
   <footer>
-    <h2>❤️ Recipe Repo helping you express your inner chef.</h2>
+    <h2>🍽 Recipe Repo helping you express your inner chef.</h2>
     <div>
        2022 Recipe Repositiory, Inc.
     </div>
