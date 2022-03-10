@@ -9,7 +9,8 @@
     font-family: sans-serif;
     color: #333;
   }
-  
+ 
+
   a {
     text-decoration: none;
     color: #225ca3;
@@ -84,6 +85,7 @@
   
   header h1 {
     font-size: 1em;
+    
   }
   
   main {
@@ -171,6 +173,7 @@
     justify-content: center;
     padding: 1%;
     font-size: 110%;
+    background-color: #ccc;
   }
 
   .grid-container {
@@ -185,3 +188,30 @@
   .grid-container > div {
     padding: 20px;
   }
+
+  /* styling to homepage */
+  #navbarSupportedContent{
+   background-color: rgba(0, 119, 255, 0.233); 
+  }
+
+ #navlink, #logout{
+   color: #3486eb;
+ }
+
+ #navlink:hover, #logout:hover{
+   color: #d41414;
+   cursor: pointer;
+ }
+
+ #rrheader{
+   color:rgb(150, 127, 255);
+   text-align: center;
+   
+  
+ }
+
+ /* styilng cards */
+
+
+ 
+
