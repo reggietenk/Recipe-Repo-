@@ -22,11 +22,11 @@ Recipes.belongsTo(User, {
 
 //Category Relationships
 Recipes.belongsTo(Categories, {
-    foreignKey: 'id_category'
+    foreignKey: 'category_id'
 });
 
 Categories.hasMany(Recipes, {
-    foreignKey: 'id_category'
+    foreignKey: 'category_id'
 });
 
 // Comment-User relationship

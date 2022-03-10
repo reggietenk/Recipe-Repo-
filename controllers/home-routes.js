@@ -125,6 +125,42 @@ router.get('/categories', (req,res) => {
     });
 });
 
+router.get('/category/:id', (req,res) => {
+  Categories.findOne({
+    where: {
+      id_category: req.params.id
+  },
+  include: [
+    {
+      model: Recipes,
+      attributes: ['id', 'recipe_name', 'recipe_instructions', 'category_id', 'ingredients', 'user_id', 'created_at' ],
+      include: {
+        model: User,
+        attributes: ['username']
+      }
+    }
+  ]
+  })
+  .then(dbCategoryData => {
+    if (!dbCategoryData) {
+      res.status(404).json({ message: 'No Category found with this id' });
+      return;
+    }
+
+    // serialize the data
+    const categories = dbCategoryData.get({ plain: true });
+
+
+    // pass data to template
+    res.render('crecipe', { categories });
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+});
+
+ 
 
 
 module.exports = router;
