@@ -1,12 +1,15 @@
-<div class="container">
-    <div class="grid-container" >
-        {{#each categories}}
-        <div><h2>{{str_category}}</h2>
-        <br>
-       <img src="{{str_category_thumb}}">
-        <br>
-        <h3>{{str_category_description}}</h3>
-        </div>
-        {{/each}}
+
+
+<div class="row ">
+    {{#each categories}}
+  <div class="col">
+    <div class="card">
+      <img src="{{str_category_thumb}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{str_category}}</h5>
+        <p class="card-text">{{str_category_description}}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
     </div>
-</div>
+  </div>
+  {{/each}}
