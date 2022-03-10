@@ -11,7 +11,8 @@ router.get('/', (req, res) => {
       'recipe_name',
       'recipe_instructions',
       'category_id',
-      'ingredients'
+      'ingredients',
+      'created_at'
     ],
     include: [
       {
