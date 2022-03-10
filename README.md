@@ -44,10 +44,10 @@ The Recipe Repo is a web application that allows users to share, save & use new 
 
 
 ## Contribution
-Mamona Masood
-Sean Mckeags
-Zach Steuer
-Reggie Tenkorang
+- Mamona Masood
+- Sean Mckeags
+- Zach Steuer
+- Reggie Tenkorang
 
 
 
