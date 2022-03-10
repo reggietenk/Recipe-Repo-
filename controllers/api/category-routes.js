@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Categories } = require('../../models');
+const { Categories, Recipes } = require('../../models');
 
 // The `/api/categories` endpoint
 
@@ -23,31 +23,30 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  // find one category by its `id` value
-  // be sure to include its associated Products
   Categories.findOne({
-      where: {
-          id_category: req.params.id_category
-      },
-      attributes: ['id_category', 'str_category', 'str_category_thumb', 'str_category_description'],
-    //   include: [
-    //       {
-    //           model: Product,
-    //           attributes: ['id', 'product_name', 'price', 'stock', 'category_id']
-    //       }
-    //   ]
+    where: {
+      id_category: req.params.id
+    },
+    attributes: ['str_category', 'str_category', 'str_category_thumb', 'str_category_description'
+    ],
+    include: [
+      {
+        model: Recipes,
+        attributes: ['id', 'recipe_name', 'recipe_instructions', 'category_id', 'ingredients', 'user_id', 'created_at' ]
+      }
+    ]
   })
-      .then(dbCategoryData => {
-          if (!dbCategoryData) {
-              res.status(404).json({ message: 'No category found with this id' });
-              return;
-          }
-          res.json(dbCategoryData);
-      })
-      .catch(err => {
-          console.log(err);
-          res.status(500).json(err);
-      });
+    .then(dbCategoryData => {
+      if (!dbCategoryData) {
+        res.status(404).json({ message: 'No Category found with this id' });
+        return;
+      }
+      res.json(dbCategoryData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 router.post('/', (req, res) => {
