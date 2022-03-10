@@ -17,14 +17,14 @@
 {{#if recipes.length}}
 <section>
   <h2>Your Recipess</h2>
-  <ol>
+  <ul>
     {{#each recipes as |recipe|}}
     <li>
       {{> single-recipe-info recipe}}
       <a href="/dashboard/edit/{{recipe.id}}" class="edit-link">Edit recipe</a>
     </li>
     {{/each}}
-  </ol>
+  </ul>
 </section>
 {{/if}}
 
