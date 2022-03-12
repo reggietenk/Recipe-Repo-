@@ -1,15 +1,15 @@
-<form class="new-recipe-form">
+<form class="edit-recipe-form" id="edit-recipe-form">
     <div>
       <label for="recipe-title">Recipe Name</label>
-      <input type="text" id="recipe-title" name="recipe-title" />
+      <input type="text" id="recipe-title" value="{{recipe.recipe_name}}" name="recipe-title" />
     </div>
     <div>
       <label for="recipe-url">Recipe Instructions</label>
-      <textarea class="postarea" id="recipe-text" name="recipe-text"></textarea>
+      <textarea class="postarea" id="recipe-text" name="recipe-text">{{recipe.recipe_instructions}}</textarea>
     </div>
     <div>
       <label for="recipe-ingredients">Ingredients</label>
-      <textarea class="postarea" id="recipe-ingredients" name="recipe-ingredients"></textarea>
+      <textarea class="postarea" id="recipe-ingredients" name="recipe-ingredients">{{recipe.ingredients}}</textarea>
     </div>
     <div class="row">
     <div class="dropdown .me-3">
@@ -35,13 +35,14 @@
       </ul>
     </div>
     <div>
-    <button type="submit" class="btn">Publish</button>
+    <button type="submit" class="btn">Edit</button>
+    <button type="click" class="btn">Delete</button>
     </div>
     </div>
   </form>
 </section>
 
 <script src="/javascript/edit-recipe.js"></script>
-<script src="/javascript/delete-recipe.js"></script>
+
 
 

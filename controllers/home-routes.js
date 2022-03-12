@@ -152,7 +152,8 @@ router.get('/category/:id', (req,res) => {
 
 
     // pass data to template
-    res.render('crecipe', { categories });
+    res.render('crecipe', { categories,
+    loggedIn:req.session.loggedIn });
   })
   .catch(err => {
     console.log(err);
