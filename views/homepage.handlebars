@@ -1,7 +1,7 @@
-<article class="recipe-list">
+<div class="row justify-content-evenly">
   {{#each recipes as |recipe|}}
-  <div>
+  <div class="col-4">
     {{> single-recipe-info recipe }}
   </div>
   {{/each}}
-</article>
+</div>

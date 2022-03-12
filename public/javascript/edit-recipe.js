@@ -1,8 +1,11 @@
+let category_id= "";
+
 async function editFormHandler(event) {
     event.preventDefault();
 
-    const title = document.querySelector('input[name="post-title-edit"]').value.trim();
-    const recipe_text = document.querySelector('textarea[name="recipe-content-edit"]').value.trim();
+    const recipe_name = document.querySelector('input[name="recipe-title"]').value;
+    const recipe_instructions = document.querySelector('textarea[name="recipe-text"]').value;
+    const ingredients = document.querySelector('textarea[name="recipe-ingredients"]').value;
     const recipe_id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
@@ -10,8 +13,10 @@ async function editFormHandler(event) {
     const response = await fetch(`/api/recipes/${recipe_id}`, {
         method: 'PUT',
         body: JSON.stringify({
-            title,
-            recipe_id
+            recipe_name,
+            recipe_instructions,
+            ingredients,
+            category_id
         }),
         headers: {
             'Content-Type': 'application/json'
@@ -25,4 +30,11 @@ async function editFormHandler(event) {
     }
 }
 
-document.querySelector('#edit-recipe-form').addEventListener('submit', editFormHandler);
+document.querySelector('.edit-recipe-form').addEventListener('submit', editFormHandler);
+
+document.querySelectorAll('.dropdown-item').forEach(item => {
+    item.addEventListener('click', function(e) {
+    category_id = e.target.dataset.value;
+    document.querySelector('#dropdownMenuButton1').textContent= e.target.textContent;
+  })
+  })
