@@ -1,4 +1,4 @@
-let category_id= "";
+// let category_id= "";
 
 async function editFormHandler(event) {
     event.preventDefault();
@@ -16,7 +16,6 @@ async function editFormHandler(event) {
             recipe_name,
             recipe_instructions,
             ingredients,
-            category_id
         }),
         headers: {
             'Content-Type': 'application/json'
@@ -32,9 +31,9 @@ async function editFormHandler(event) {
 
 document.querySelector('.edit-recipe-form').addEventListener('submit', editFormHandler);
 
-document.querySelectorAll('.dropdown-item').forEach(item => {
-    item.addEventListener('click', function(e) {
-    category_id = e.target.dataset.value;
-    document.querySelector('#dropdownMenuButton1').textContent= e.target.textContent;
-  })
-  })
+// document.querySelectorAll('.dropdown-item').forEach(item => {
+//     item.addEventListener('click', function(e) {
+//     category_id = e.target.dataset.value;
+//     document.querySelector('#dropdownMenuButton1').textContent= e.target.textContent;
+//   })
+//   })
