@@ -88,7 +88,8 @@ router.get('/', (req, res) => {
       .then(dbRecipeData => res.json(dbRecipeData))
       .catch(err => {
         console.log(err);
-        res.status(500).json(err);
+        res.status(500, "please select a Category").json(err);
+        res.alert("Please choose a Category")
       });
   });
   
