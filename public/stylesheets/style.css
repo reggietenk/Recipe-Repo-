@@ -193,13 +193,15 @@
   /* styling to homepage */
   #body{
     background-color: #ccc;
+    background-image: url("https://images.unsplash.com/photo-1560713781-d00f6c18f388?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1381&q=80");
+    background-position:inherit
   }
   #navbarSupportedContent{
    background-color: rgba(0, 119, 255, 0.233); 
   }
 
  #navlink, #logout{
-   color: #3486eb;
+   color: #4f5255;
  }
 
  #navlink:hover, #logout:hover{
@@ -216,6 +218,7 @@
 
 .login-form, .signup-form{
   font-weight:bold;
+  display: flexbox;
 }
 
 
@@ -227,5 +230,4 @@
    border: #3437eb;
  }
 
- 
 
