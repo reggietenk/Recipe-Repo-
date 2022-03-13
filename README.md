@@ -31,7 +31,7 @@ The Recipe Repo is a web application that allows users to share, save & use new 
 ## Usage 
 
 
-![screenshot](./assets/images/recipeshot.png)
+![screenshot](./assets/images/recipe02.png)
 
 
 
