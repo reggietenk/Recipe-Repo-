@@ -47,6 +47,7 @@
     padding: .5%;
     border-radius: 5px;
     border: 1px solid #ccc;
+    background: antiquewhite;
   }
   
   textarea:focus, input:focus {
@@ -228,6 +229,15 @@
  .container{
    color:#134685;
    border: #3437eb;
+ }
+
+ .card-body{
+   background: antiquewhite;
+ }
+
+ .card-header1{
+   background:rgba(0, 119, 255, 0.233); 
+   background-color:rgba(0, 119, 255, 0.233);
  }
 
 
