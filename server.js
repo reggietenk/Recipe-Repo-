@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const exphbs = require('express-handlebars');
 const helpers = require('./utils/helpers');
+const dotenv = require('dotenv').config()
 
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -30,6 +31,7 @@ const sess = {
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.cookieParser('dolphins'));
 app.use(session(sess));
 
 app.use(require('./controllers/'));
